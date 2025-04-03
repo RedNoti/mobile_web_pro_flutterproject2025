@@ -5,9 +5,9 @@ void main() {
     print('첫번째: $i');
   }
 
-  list.forEach((item) {
+  for (var item in list) {
     print('두번째: $item');
-  });
+  }
 
   List.generate(list.length, (i) {
     print('3번째: $i');
