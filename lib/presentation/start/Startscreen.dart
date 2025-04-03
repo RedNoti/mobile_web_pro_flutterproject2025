@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Startscreen extends StatelessWidget {
   const Startscreen({super.key});
-
+  //깃 수정용
   //숏컷 커맨드 + .
   //Colors.blueAccent,
   //앱 이름
