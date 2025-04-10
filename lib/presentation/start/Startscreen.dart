@@ -1,7 +1,20 @@
+import 'package:daelim_2025/app/router/app_route.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class Startscreen extends StatelessWidget {
   const Startscreen({super.key});
+
+  final _title = 'Get Started with\nTracking Your Health!';
+
+  final _desc =
+      'Calculate your BMI and stay on top of your wellness journey, effortlessly.';
+
+  TextStyle get _titleStyle =>
+      TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 25);
+
+  TextStyle get _descStyle => TextStyle(color: Color(0xFFC6C3F9), fontSize: 15);
+
   //깃 수정용
   //숏컷 커맨드 + .
   //Colors.blueAccent,
@@ -18,31 +31,32 @@ class Startscreen extends StatelessWidget {
     );
   }
 
-  //타이틀
-  Widget _buildTitle() {
-    return Text(
-      'Get Started with\nTracking Your Health!',
-      style: TextStyle(
-        color: Colors.white,
-        fontWeight: FontWeight.bold,
-        fontSize: 25,
+  Widget _buildTitleDesc() {
+    return RichText(
+      text: TextSpan(
+        children: [
+          TextSpan(text: _title, style: _titleStyle),
+          TextSpan(text: '\n'),
+          WidgetSpan(child: SizedBox(height: 30)),
+          TextSpan(text: _desc, style: _descStyle),
+        ],
       ),
     );
   }
 
-  //설명
-  Widget _buildDescription() {
-    return Text(
-      "Calculate your BMI and stay on top of your wellness journey, effortlessly.",
-      style: TextStyle(color: Color(0xFFC6C3F9), fontSize: 15),
-    );
-  }
-
   //시작버튼
-  Widget _buildbutton() {
+  Widget _buildbutton(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      child: ElevatedButton(onPressed: () {}, child: Text("Get Started")),
+      height: 60,
+      child: ElevatedButton(
+        onPressed:
+            () =>
+            //메인 이동
+            context.go(AppRoute.main.topath),
+        style: ElevatedButton.styleFrom(foregroundColor: Color(0xFF081854)),
+        child: Text("Get Started"),
+      ),
     );
   }
 
@@ -64,16 +78,12 @@ class Startscreen extends StatelessWidget {
                 SizedBox(height: 60),
                 Image.asset('assets/images/bike.png'),
                 SizedBox(height: 95),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _buildTitle(),
-                    SizedBox(height: 15),
-                    _buildDescription(),
-                  ],
-                ),
+                _buildTitleDesc(),
+                // _buildTitle(),
+                // SizedBox(height: 15),
+                // _buildDescription(),
                 SizedBox(height: 40),
-                _buildbutton(),
+                _buildbutton(context),
               ],
             ),
           ),
@@ -82,3 +92,6 @@ class Startscreen extends StatelessWidget {
     );
   }
 }
+
+  //Column으로 감싸고 crossAxisAlignment: CrossAxisAlignment.start, 로 정렬 (기존 방법)
+
