@@ -29,6 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   go_router: ^14.8.1
+  lucide_icons_flutter: ^2.0.5
   flutter:
     sdk: flutter
 
