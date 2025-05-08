@@ -99,7 +99,7 @@ class _MyWidgetState extends State<MainScreen> {
                     _height = height;
                   },
                 ),
-                //endregion
+                //endregion 성별 설정 토글 버튼
                 GenderBox(
                   onChanged: (gender) {
                     _gender = gender;

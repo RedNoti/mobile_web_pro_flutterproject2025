@@ -76,7 +76,6 @@ class Startscreen extends StatelessWidget {
               children: [
                 _buildappname(),
                 SizedBox(height: 60),
-                Image.asset('assets/images/bike.png'),
                 SizedBox(height: 95),
                 _buildTitleDesc(),
                 // _buildTitle(),

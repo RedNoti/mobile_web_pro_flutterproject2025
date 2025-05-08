@@ -5,6 +5,7 @@ import 'package:daelim_2025/presentation/start/Startscreen.dart';
 import 'package:go_router/go_router.dart';
 
 final router = GoRouter(
+  //시작화면 스크린 고정
   initialLocation: AppRoute.start.topath,
   routes: [
     GoRoute(
